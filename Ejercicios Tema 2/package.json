@@ -1,0 +1,25 @@
+{
+  "name": "Prueba",
+  "version": "1.0.0",
+  "description": "Package json de prueba para el ejercicio 2",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ibe16/CC-19-20-Ejercicios"
+  },
+  "author": "@ibe16",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ibe16/CC-19-20-Ejercicios/issues"
+  },
+  "homepage": "https://github.com/ibe16/CC-19-20-Ejercicios",
+  "devDependencies": {
+    "docco": "^0.8.0",
+    "grunt": "^1.0.4",
+    "grunt-docco": "^0.5.0",
+    "sqlite": "^3.0.3"
+  }
+}
