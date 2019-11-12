@@ -61,3 +61,44 @@
 
 ## Ejercicio 3
 > Descargar el repositorio de ejemplo anterior, instalar las herramientas necesarias (principalmente Scala y sbt) y ejecutar el ejemplo desde sbt. Alternativamente, buscar otros marcos para REST en Scala tales como Finatra o Scalatra y probar los ejemplos que se incluyan en el repositorio.
+
+Seguimos las instrucciones que se proporcionan en el [repositorio](https://github.com/JJ/spray-test) y vemos que todo funciona, se ejecutan los test y se realizan algunos ejemplos de funcionamiento.
+
+## Ejercicio 4
+> Para la aplicación que se está haciendo, escribir una serie de aserciones y probar que efectivamente no fallan. Añadir tests para una nueva funcionalidad, probar que falla y escribir el código para que no lo haga. A continuación, ejecutarlos desde mocha (u otro módulo de test de alto nivel), usando descripciones del test y del grupo de test de forma correcta. Si hasta ahora no has subido el código que has venido realizando a GitHub, es el momento de hacerlo, porque lo vamos a necesitar un poco más adelante.
+
+Como ejemplo se pueden consultar los [test](https://github.com/ibe16/CC-19-20-Proyecto/tree/master/tests) realizados para el microservicio ```Notifier```.
+
+## Ejerucicio 5
+>1. Darse de alta. Muchos están conectados con GitHub por lo que puedes usar directamente el usuario ahí. A través de un proceso de autorización, acceder al contenido e incluso informar del resultado de los tests.
+>2. Activar el repositorio en el que se vaya a aplicar la integración continua. Travis permite hacerlo directamente desde tu configuración; en otros se dan de alta desde la web de GitHub.
+>3. Crear un fichero de configuración para que se ejecute la integración y añadirlo al repositorio.
+
+Después de darse de alta en TravisCI y activar la CI para el repositorio del proyecto, el archivo de configuración creado es el siguiente:
+```yml
+#Lenguaje de programación
+language: python
+
+#Distintas versiones para hacer la prueba
+python:
+  - "3.4"
+  - "3.5"
+  - "3.6"
+  - "3.6.8" 
+  - "3.7"
+  - "3.8"
+  - "3.8-dev"
+
+#Instalar las dependencias necesarias
+install:
+  - pip install -r requirements.txt
+
+#Ejecutar los test unitarios y de cobertura
+script:
+  - invoke test
+  - invoke coverage
+
+#Enviar resultados test de cobertura a codecov
+after_success:
+  - codecov
+```
